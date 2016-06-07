@@ -1,0 +1,113 @@
+﻿<div class="container no-bottom">
+    <h3 class="center-text">{{Title}}</h3>
+    {{#if CustomerReviews}}
+    <p class="center-text">
+        <em>
+            {{formatRating AvgCustomerRating}} {{AvgCustomerRating}} điểm bởi <a href="#book-customer-reviews" style="display: inline">
+                {{TotalCustomerReviews}} bình phẩm
+            </a>
+        </em>
+    </p>
+    {{/if}}
+    <p style="white-space: pre-wrap" class="book-desc">{{Desc}}</p>
+</div>
+
+<div class="decoration"></div>
+
+<div class="timeline">
+    <div class="timeline-decoration" style="height:96%;"></div>
+
+    {{#if CustomerReviews}}
+    <div class="timeline-item" id="book-customer-reviews">
+        <div class="timeline-icon">
+            <i class="fa fa-quote-left"></i>
+        </div>
+        <div class="timeline-text">
+            {{#each CustomerReviews}}
+            <h3 class="title">{{this.Subject}}</h3>
+            <em class="subtitle">
+                {{formatRating this.Rating}}
+                {{#if this.Subject}}
+                bởi <span style="text-transform: capitalize">{{this.Name}}</span>
+                {{/if}}
+                {{#if this.PublishedDate}}
+                vào {{formatJsonDate this.PublishedDate}}
+                {{/if}}
+            </em>
+            <p style="white-space: pre-wrap" class="book-comment">{{this.Comment}}</p>
+            {{/each}}
+        </div>
+    </div>
+    {{/if}}
+
+    {{#if Authors}}
+    <div class="timeline-item">
+        <div class="timeline-icon">
+            <i class="fa fa-users"></i>
+        </div>
+        <div class="timeline-text">
+            {{#each Authors}}
+            <h3 class="title">{{this.Name}}</h3>
+            <em class="subtitle">Tác giả</em>
+            {{#if this.Avatar}}
+            <img class="responsive-image" src="{{storageUrl}}/authors/{{this.Id}}.jpg" alt="{{this.Name}}">
+            {{/if}}
+            <p style="white-space: pre-wrap" class="author-desc">{{this.Desc}}</p>
+            {{/each}}
+            {{#each Translators}}
+            <h3 class="title">{{this.Name}}</h3>
+            <em class="subtitle">Dịch giả</em>
+            {{#if this.Avatar}}
+            <img class="responsive-image" src="{{storageUrl}}/authors/{{this.Id}}.jpg" alt="{{this.Name}}">
+            {{/if}}
+            <p style="white-space: pre-wrap" class="author-desc">{{this.Desc}}</p>
+            {{/each}}
+        </div>
+    </div>
+    {{/if}}
+
+    <div class="timeline-item">
+        <div class="timeline-icon">
+            <i class="fa fa-info"></i>
+        </div>
+        <div class="timeline-text">
+            <h3>Thông tin chi tiết</h3>
+            <div class="container no-bottom">
+                <ul class="font-icon-list book-details">
+                    {{#if Publisher}}
+                    <li><i class="fa fa-print"></i><strong>Nhà xuất bản</strong>: {{Publisher}}</li>
+                    {{/if}}
+                    {{#if Issuer}}
+                    <li><i class="fa fa-building"></i><strong>Nhà phát hành</strong>: {{Issuer}}</li>
+                    {{/if}}
+                    {{#if ProductCode}}
+                    <li><i class="fa fa-barcode"></i><strong>Mã sản phẩm</strong>: {{ProductCode}}</li>
+                    {{/if}}
+                    {{#if Weight}}
+                    <li><i class="fa fa-balance-scale"></i><strong>Khối lượng</strong>: {{Weight}}</li>
+                    {{/if}}
+                    {{#if Language}}
+                    <li><i class="fa fa-language"></i><strong>Ngôn ngữ</strong>: {{Language}}</li>
+                    {{/if}}
+                    {{#if Format}}
+                    <li><i class="fa fa-file-o"></i><strong>Định dạng</strong>: {{Format}}</li>
+                    {{/if}}
+                    {{#if Size}}
+                    <li><i class="fa fa-expand"></i><strong>Kích thước</strong>: {{Size}}</li>
+                    {{/if}}
+                    {{#if PublishDate}}
+                    <li><i class="fa fa-calendar-check-o"></i><strong>Ngày phát hành</strong>: {{PublishDate}}</li>
+                    {{/if}}
+                    {{#if Pages}}
+                    <li><i class="fa fa-book"></i><strong>Số trang</strong>: {{formatNumber Pages}}</li>
+                    {{/if}}
+                    {{#if ListPrice}}
+                    <li><i class="fa fa-money"></i><strong>Giá bìa</strong>: {{formatNumber ListPrice}}</li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="decoration"></div>

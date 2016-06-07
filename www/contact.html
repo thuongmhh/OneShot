@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src *; connect-src 'self' http://www.oneshot.mobi; frame-src 'self' https://*.google.com;">
+    <title>OneShot.Mobile</title>
+
+    <!-- Styles -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/menu.css" rel="stylesheet" />
+    <link href="css/framework.css" rel="stylesheet" />
+    <link href="css/owl.theme.css" rel="stylesheet" />
+    <link href="css/swipebox.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/animate.css" rel="stylesheet" />
+
+    <!-- Scripts -->
+    <script src="cordova.js"></script>
+    <script src="scripts/platformOverrides.js"></script>
+    <script src="scripts/jquery.js"></script>
+    <script src="scripts/jqueryui.js"></script>
+    <script src="scripts/framework.plugins.js"></script>
+    <script src="scripts/lz-string.min.js"></script>
+    <script src="scripts/custom.js"></script>
+    <script src="scripts/contact.js"></script>
+</head>
+<body>
+    <div id="preloader"></div>
+    <div class="all-elements">
+        <div class="header">
+            <a class="header-logo" href="index.html"></a>
+            <div class="header-icons"></div>
+            <div class="decoration"></div>
+        </div>
+        <div class="header-clear"></div>
+        <ul class="footer-controls five-controls"></ul>
+        <div class="maps-container">
+            <iframe class="responsive-image maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.8117536798804!2d106.6274482153027!3d10.825713561241045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752962accd8a9f%3A0xd81f5717567b7d82!2zMzEgxJDGsOG7nW5nIFBoYW4gSHV5IMONY2gsIDE1LCBUw6JuIELDrG5oLCBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1450677396226" frameborder="0"></iframe>
+        </div>
+
+        <div class="content">
+            <div class="decoration"></div>
+            <div class="one-half-responsive">
+                <h4>Gửi tin nhắn cho OneShot!</h4>
+                <p>Vui lòng sử dụng biểu mẫu dưới đây để gửi phản hồi đến OneShot. Mọi góp ý về chất lượng dịch vụ, đề xuất hợp tác, đóng góp ý tưởng của bạn đều được hoan nghênh!</p>
+                <div class="container no-bottom">
+                    <div class="contact-form no-bottom">
+                        <div class="formSuccessMessageWrap" id="formSuccessMessageWrap">
+                            <div class="big-notification green-notification">
+                                <h3 class="uppercase">Tin nhắn đã được gửi</h3>
+                                <a href="#" class="close-big-notification">x</a>
+                                <p>OneShot đã nhận được tin nhắn của bạn. Vui lòng chờ hồi âm trong vòng 24 giờ tới! Cảm ơn bạn!</p>
+                            </div>
+                        </div>
+
+                        <form method="post" class="contact-form" id="contactForm">
+                            <div class="formValidationError" id="contactNameFieldError">
+                                <div class="static-notification-red tap-dismiss-notification">
+                                    <p class="center-text uppercase">Tên liên hệ chưa được nhập!</p>
+                                </div>
+                            </div>
+                            <div class="formValidationError" id="contactEmailFieldError">
+                                <div class="static-notification-red tap-dismiss-notification">
+                                    <p class="center-text uppercase">Địa chỉ email chưa được nhập!</p>
+                                </div>
+                            </div>
+                            <div class="formValidationError" id="contactEmailFieldError2">
+                                <div class="static-notification-red tap-dismiss-notification">
+                                    <p class="center-text uppercase">Địa chỉ email chưa chính xác!</p>
+                                </div>
+                            </div>
+                            <div class="formValidationError" id="contactMessageTextareaError">
+                                <div class="static-notification-red tap-dismiss-notification">
+                                    <p class="center-text uppercase">Tin nhắn chưa được nhập!</p>
+                                </div>
+                            </div>
+                            <div class="formFieldWrap">
+                                <label class="field-title contactNameField" for="contactNameField">Tên liên hệ:<span>(cần nhập)</span></label>
+                                <input type="text" name="name" class="contactField requiredField" id="contactNameField" />
+                            </div>
+                            <div class="formFieldWrap">
+                                <label class="field-title contactEmailField" for="contactEmailField">Email: <span>(cần nhập)</span></label>
+                                <input type="email" name="email" class="contactField requiredField requiredEmailField" id="contactEmailField" />
+                            </div>
+                            <div class="formTextareaWrap">
+                                <label class="field-title contactMessageTextarea" for="contactMessageTextarea">Tin nhắn: <span>(cần nhập)</span></label>
+                                <textarea name="message" class="contactTextarea requiredField" id="contactMessageTextarea"></textarea>
+                            </div>
+                            <div class="formSubmitButtonErrorsWrap">
+                                <input type="submit" class="buttonWrap button button-green contactSubmitButton" id="contactSubmitButton" value="Gửi đi" data-formId="contactForm" />
+                            </div>
+                            <input type="hidden" name="model" />
+                            <input type="hidden" name="platform" />
+                            <input type="hidden" name="uuid" />
+                            <input type="hidden" name="version" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="decoration hide-if-responsive"></div>
+            <div class="one-half-responsive last-column">
+                <div class="container no-bottom">
+                    <h4>Thông tin liên hệ</h4>
+                    <p>
+                        <strong>Văn phòng OneShot</strong><br>
+                        31-33 Phan Huy Ích<br>
+                        Hồ Chí Minh, Việt Nam
+                    </p>
+                    <p>
+                        <strong>Hỗ trợ khách hàng</strong><br>
+                        <a href="tel:0902891409" class="contact-call"><i class="fa fa-phone"></i>090-289-1409</a>
+                        <a href="mailto:contact@oneshot.mobi" class="contact-mail"><i class="fa fa-envelope"></i>contact@oneshot.mobi</a>
+                        <a href="https://www.facebook.com/OneShot" class="contact-facebook"><i class="fa fa-facebook"></i>OneShot</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="decoration"></div>
+        </div>
+        <div class="footer"></div>
+        <div class="footer-clear"></div>
+    </div>
+    <div class="tap-dismiss-notification top-notification">
+        <p class="center-text"></p>
+    </div>
+    <div class="share-bottom"></div>
+</body>
+</html>

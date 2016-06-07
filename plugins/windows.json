@@ -1,0 +1,55 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.phonegap.plugins.barcodescanner": {
+            "PACKAGE_NAME": "OneShot"
+        },
+        "com.phonegap.plugins.PushPlugin": {
+            "PACKAGE_NAME": "OneShot"
+        },
+        "cordova-plugin-apprate": {
+            "PACKAGE_NAME": "OneShot"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "OneShot"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "OneShot"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "OneShot"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "OneShot"
+        },
+        "ly.count.cordova": {
+            "PACKAGE_NAME": "OneShot"
+        },
+        "nl.x-services.plugins.socialsharing": {
+            "PACKAGE_NAME": "OneShot"
+        },
+        "uk.co.whiteoctober.cordova.appversion": {
+            "PACKAGE_NAME": "OneShot"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "OneShot"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "OneShot"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "OneShot"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "OneShot"
+        }
+    }
+}

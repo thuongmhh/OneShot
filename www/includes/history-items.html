@@ -1,0 +1,20 @@
+﻿<div class="container no-bottom">
+    <h3>Lịch sử chụp ảnh</h3>
+    {{#if historyItems}}
+    <p>Bạn đã khám phá {{length historyItems}} tấm ảnh với OneShot. Hãy cùng xem lại chúng bên dưới.</p>
+    {{else}}
+    <p>Bạn chưa bắt đầu khám phá thế giới cùng OneShot. Hãy thử ngay hôm nay!</p>
+    {{/if}}
+</div>
+<div class="decoration"></div>
+{{#each historyItems}}
+{{#ifCond this.Domain '==' 'Book' }}
+<div href="show.html?id={{this.Id}}" class="user-list-item history-item" item-id="{{this.Id}}">
+    <a class="image" href="{{storageUrl}}/images/{{this.ImageId}}" title="{{this.Data.Title}}"><img src="{{storageUrl}}/images/{{this.ImageId}}" alt="{{this.Data.Title}}"></a>
+    <a class="title" href="show.html?id={{this.Id}}"><strong>{{this.Data.Title}}<br></strong></a>
+    <em>{{formatDateTime this.Date}}</em>
+    <a href="#" class="remove-history-item" item-id="{{this.Id}}"><i class="fa fa-times"></i></a>
+</div>
+{{/ifCond}}
+<div class="decoration"></div>
+{{/each}}

@@ -1,0 +1,35 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "{1f567af0-1707-11e6-9515-59b7fdf1d3b0}"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "{1f567af0-1707-11e6-9515-59b7fdf1d3b0}"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "{1f567af0-1707-11e6-9515-59b7fdf1d3b0}"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "{1f567af0-1707-11e6-9515-59b7fdf1d3b0}"
+        },
+        "nl.x-services.plugins.socialsharing": {
+            "PACKAGE_NAME": "{1f567af0-1707-11e6-9515-59b7fdf1d3b0}"
+        },
+        "nl.x-services.plugins.launchmyapp": {
+            "URL_SCHEME": "oneshot",
+            "PACKAGE_NAME": "{1f567af0-1707-11e6-9515-59b7fdf1d3b0}"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "{1f567af0-1707-11e6-9515-59b7fdf1d3b0}"
+        }
+    }
+}

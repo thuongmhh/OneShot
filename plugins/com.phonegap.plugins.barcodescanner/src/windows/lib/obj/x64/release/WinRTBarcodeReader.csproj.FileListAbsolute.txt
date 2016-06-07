@@ -1,0 +1,17 @@
+D:\OneDrive\Documents\OneShot\OneShot.Mobile\plugins\com.phonegap.plugins.barcodescanner\src\windows\lib\bin\x64\Release\WinRTBarcodeReader.winmd
+D:\OneDrive\Documents\OneShot\OneShot.Mobile\plugins\com.phonegap.plugins.barcodescanner\src\windows\lib\bin\x64\Release\WinRTBarcodeReader.pri
+D:\OneDrive\Documents\OneShot\OneShot.Mobile\plugins\com.phonegap.plugins.barcodescanner\src\windows\lib\bin\x64\Release\ZXing.winmd
+D:\OneDrive\Documents\OneShot\OneShot.Mobile\plugins\com.phonegap.plugins.barcodescanner\src\windows\lib\obj\x64\release\WinRTBarcodeReader.csprojResolveAssemblyReference.cache
+D:\OneDrive\Documents\OneShot\OneShot.Mobile\plugins\com.phonegap.plugins.barcodescanner\src\windows\lib\obj\x64\release\WinRTBarcodeReader.winmd
+D:\OneDrive\Documents\OneShot\OneShot.Mobile\plugins\com.phonegap.plugins.barcodescanner\src\windows\lib\obj\x64\release\WinRTBarcodeReader.winmdobj
+D:\OneDrive\Documents\OneShot\OneShot.Mobile\plugins\com.phonegap.plugins.barcodescanner\src\windows\lib\obj\x64\release\priconfig.xml
+D:\OneDrive\Documents\OneShot\OneShot.Mobile\plugins\com.phonegap.plugins.barcodescanner\src\windows\lib\obj\x64\release\priconfig.xml.intermediate
+D:\OneDrive\Documents\OneShot\OneShot.Mobile\plugins\com.phonegap.plugins.barcodescanner\src\windows\lib\obj\x64\release\layout.resfiles
+D:\OneDrive\Documents\OneShot\OneShot.Mobile\plugins\com.phonegap.plugins.barcodescanner\src\windows\lib\obj\x64\release\layout.resfiles.intermediate
+D:\OneDrive\Documents\OneShot\OneShot.Mobile\plugins\com.phonegap.plugins.barcodescanner\src\windows\lib\obj\x64\release\resources.resfiles
+D:\OneDrive\Documents\OneShot\OneShot.Mobile\plugins\com.phonegap.plugins.barcodescanner\src\windows\lib\obj\x64\release\resources.resfiles.intermediate
+D:\OneDrive\Documents\OneShot\OneShot.Mobile\plugins\com.phonegap.plugins.barcodescanner\src\windows\lib\obj\x64\release\pri.resfiles
+D:\OneDrive\Documents\OneShot\OneShot.Mobile\plugins\com.phonegap.plugins.barcodescanner\src\windows\lib\obj\x64\release\pri.resfiles.intermediate
+D:\OneDrive\Documents\OneShot\OneShot.Mobile\plugins\com.phonegap.plugins.barcodescanner\src\windows\lib\obj\x64\release\qualifiers.txt
+D:\OneDrive\Documents\OneShot\OneShot.Mobile\plugins\com.phonegap.plugins.barcodescanner\src\windows\lib\obj\x64\release\qualifiers.txt.intermediate
+D:\OneDrive\Documents\OneShot\OneShot.Mobile\plugins\com.phonegap.plugins.barcodescanner\src\windows\lib\obj\x64\release\MultipleQualifiersPerDimensionFound.txt

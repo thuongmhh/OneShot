@@ -1,0 +1,17 @@
+﻿{{#each messages}}
+<div class="content-heading">
+    <h4>{{this.Title}}</h4>
+    {{#if this.Subtitle}}
+    <p>{{this.Subtitle}}</p>
+    {{/if}}
+    <div class="overlay"></div>
+    <img src="images/pictures/bgw.jpg" alt="Overlay" />
+</div>
+{{#if this.Content}}
+<div class="content">
+    <div class="container half-bottom">
+        {{{this.Content}}}
+    </div>
+</div>
+{{/if}}
+{{/each}}

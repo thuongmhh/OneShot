@@ -1,0 +1,55 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.phonegap.plugins.barcodescanner": {
+            "PACKAGE_NAME": "mobi.oneshot.app"
+        },
+        "com.phonegap.plugins.PushPlugin": {
+            "PACKAGE_NAME": "mobi.oneshot.app"
+        },
+        "cordova-plugin-apprate": {
+            "PACKAGE_NAME": "mobi.oneshot.app"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "mobi.oneshot.app"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "mobi.oneshot.app"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "mobi.oneshot.app"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "mobi.oneshot.app"
+        },
+        "ly.count.cordova": {
+            "PACKAGE_NAME": "mobi.oneshot.app"
+        },
+        "nl.x-services.plugins.socialsharing": {
+            "PACKAGE_NAME": "mobi.oneshot.app"
+        },
+        "uk.co.whiteoctober.cordova.appversion": {
+            "PACKAGE_NAME": "mobi.oneshot.app"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "mobi.oneshot.app"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "mobi.oneshot.app"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "mobi.oneshot.app"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "mobi.oneshot.app"
+        }
+    }
+}
