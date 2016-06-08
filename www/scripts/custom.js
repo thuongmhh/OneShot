@@ -739,6 +739,12 @@ function loadItem(item) {
 
     }).on('deviceready', function () {
 
+        // Catch all errors
+        window.onerror = function (message, source, lineno, colno, error) {
+            setError(message);
+            return false;
+        }
+
         // Setting up Countly statistic
         Countly.init(COUNTLY_URL, '15304f5a9768ce5b25bbed393ef6ee9b8f9494a9');
 
@@ -764,21 +770,16 @@ function loadItem(item) {
             var barcodeSuccess = function (result) {
                 if (result.cancelled == 0) {
 
-                    if (result.text.startsWith('http://') || result.text.startsWith('https://')) {
-                        window.open(result.text);
-                        return;
-                    }
-
                     if (result.text.match(/\w+:.*$/g)) {
                         navigator.notification.confirm(
-                            'Bạn có muốn mở ' + result.text + ' không?',
+                            result.text,
                             function (buttonIndex) {
                                 if (buttonIndex == 1) {
                                     window.open(result.text, '_system');
                                 }
                             },
                             'Mã vạch',
-                            ['Có', 'Không']
+                            ['Mở', 'Đóng']
                         );
                         return;
                     }
@@ -816,8 +817,9 @@ function loadItem(item) {
                 }
             };
 
-            var barcodeError = function (error) {
-                setError(err);
+            var barcodeError = function (err) {
+                var events = { "eventName": err, "eventCount": 1 };
+                Countly.sendEvent(events);
             };
 
             cordova.plugins.barcodeScanner.scan(barcodeSuccess, barcodeError, barcodeOptions);
@@ -897,7 +899,8 @@ function loadItem(item) {
             };
 
             var cameraError = function (err) {
-                setError(err);
+                var events = { "eventName": err, "eventCount": 1 };
+                Countly.sendEvent(events);
             };
 
             navigator.camera.getPicture(cameraSuccess, cameraError, cameraOptions);

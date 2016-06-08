@@ -67,31 +67,41 @@
         document.addEventListener('pause', onPause.bind(this), false);
         document.addEventListener('resume', onResume.bind(this), false);
 
-        jQuery('#contactForm').attr('action', SERVER_URL + '/App/Contact');
-        jQuery('#contactForm input[name="model"]').val(device.model);
-        jQuery('#contactForm input[name="platform"]').val(device.platform);
-        jQuery('#contactForm input[name="uuid"]').val(device.uuid);
-        jQuery('#contactForm input[name="version"]').val(device.version);
+        try {
+            navigator.notification.alert('aaa', function () { });
+            jQuery('#contactForm').attr('action', SERVER_URL + '/App/Contact');
+            jQuery('#contactForm input[name="model"]').val(device.model);
+            jQuery('#contactForm input[name="platform"]').val(device.platform);
+            jQuery('#contactForm input[name="uuid"]').val(device.uuid);
+            jQuery('#contactForm input[name="version"]').val(device.version);
+            navigator.notification.alert('bbb', function () { });
+            jQuery('#formSuccessMessageWrap').hide(0);
+            navigator.notification.alert(jQuery('#formSuccessMessageWrap').css('display'), function () { });
+            jQuery('.formValidationError').fadeOut(0);
+            navigator.notification.alert(jQuery('.formValidationError').length, function () { });
+            navigator.notification.alert('bbb', function () { });
+            navigator.notification.alert('ccc', function () { });
+            jQuery('input[type="text"], input[type="password"], textarea').focus(function () {
+                if (jQuery(this).val() == jQuery(this).attr("data-dummy")) {
+                    jQuery(this).val("");
+                }
+            });
 
-        jQuery('#formSuccessMessageWrap').hide(0);
-        jQuery('.formValidationError').fadeOut(0);
+            jQuery("input, textarea").blur(function () {
+                if (jQuery(this).val() == '') {
+                    jQuery(this).val(jQuery(this).attr("data-dummy"));
+                }
+            });
 
-        jQuery('input[type="text"], input[type="password"], textarea').focus(function () {
-            if (jQuery(this).val() == jQuery(this).attr("data-dummy")) {
-                jQuery(this).val("");
-            }
-        });
-
-        jQuery("input, textarea").blur(function () {
-            if (jQuery(this).val() == '') {
-                jQuery(this).val(jQuery(this).attr("data-dummy"));
-            }
-        });
-
-        jQuery('#contactSubmitButton').click(function () {
-            validate();
-            return false;
-        });
+            jQuery('#contactSubmitButton').click(function () {
+                validate();
+                return false;
+            });
+        }
+        catch(err) {
+            navigator.notification.alert('ddd', function () { });
+        }
+        
     }
 
     function onPause() {
