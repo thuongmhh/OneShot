@@ -38,7 +38,7 @@
         <div class="header-clear"></div>
         <ul class="footer-controls five-controls"></ul>
         <div class="maps-container">
-            <iframe class="responsive-image maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.8117536798804!2d106.6274482153027!3d10.825713561241045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752962accd8a9f%3A0xd81f5717567b7d82!2zMzEgxJDGsOG7nW5nIFBoYW4gSHV5IMONY2gsIDE1LCBUw6JuIELDrG5oLCBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1450677396226" frameborder="0"></iframe>
+            <!--<iframe class="responsive-image maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.8117536798804!2d106.6274482153027!3d10.825713561241045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752962accd8a9f%3A0xd81f5717567b7d82!2zMzEgxJDGsOG7nW5nIFBoYW4gSHV5IMONY2gsIDE1LCBUw6JuIELDrG5oLCBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1450677396226" frameborder="0"></iframe>-->
         </div>
 
         <div class="content">
@@ -48,7 +48,7 @@
                 <p>Vui lòng sử dụng biểu mẫu dưới đây để gửi phản hồi đến OneShot. Mọi góp ý về chất lượng dịch vụ, đề xuất hợp tác, đóng góp ý tưởng của bạn đều được hoan nghênh!</p>
                 <div class="container no-bottom">
                     <div class="contact-form no-bottom">
-                        <div class="formSuccessMessageWrap" id="formSuccessMessageWrap">
+                        <div class="formSuccessMessageWrap" id="formSuccessMessageWrap" style="display: none">
                             <div class="big-notification green-notification">
                                 <h3 class="uppercase">Tin nhắn đã được gửi</h3>
                                 <a href="#" class="close-big-notification">x</a>
@@ -57,22 +57,22 @@
                         </div>
 
                         <form method="post" class="contact-form" id="contactForm">
-                            <div class="formValidationError" id="contactNameFieldError">
+                            <div class="formValidationError" id="contactNameFieldError" style="display: none">
                                 <div class="static-notification-red tap-dismiss-notification">
                                     <p class="center-text uppercase">Tên liên hệ chưa được nhập!</p>
                                 </div>
                             </div>
-                            <div class="formValidationError" id="contactEmailFieldError">
+                            <div class="formValidationError" id="contactEmailFieldError" style="display: none">
                                 <div class="static-notification-red tap-dismiss-notification">
                                     <p class="center-text uppercase">Địa chỉ email chưa được nhập!</p>
                                 </div>
                             </div>
-                            <div class="formValidationError" id="contactEmailFieldError2">
+                            <div class="formValidationError" id="contactEmailFieldError2" style="display: none">
                                 <div class="static-notification-red tap-dismiss-notification">
                                     <p class="center-text uppercase">Địa chỉ email chưa chính xác!</p>
                                 </div>
                             </div>
-                            <div class="formValidationError" id="contactMessageTextareaError">
+                            <div class="formValidationError" id="contactMessageTextareaError" style="display: none">
                                 <div class="static-notification-red tap-dismiss-notification">
                                     <p class="center-text uppercase">Tin nhắn chưa được nhập!</p>
                                 </div>
@@ -92,10 +92,6 @@
                             <div class="formSubmitButtonErrorsWrap">
                                 <input type="submit" class="buttonWrap button button-green contactSubmitButton" id="contactSubmitButton" value="Gửi đi" data-formId="contactForm" />
                             </div>
-                            <input type="hidden" name="model" />
-                            <input type="hidden" name="platform" />
-                            <input type="hidden" name="uuid" />
-                            <input type="hidden" name="version" />
                         </form>
                     </div>
                 </div>

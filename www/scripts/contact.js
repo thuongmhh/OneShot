@@ -10,11 +10,17 @@
     var formSubmitted = false;
     function submit() {
         formSubmitted = true;
+
         var data = jQuery('#contactForm').serialize();
+        data.model = device.model;
+        data.platform = device.platform;
+        data.uuid = device.uuid;
+        data.version = device.version;
+
         setInfo('Đang gửi tin nhắn của bạn. Vui lòng chờ trong giây lát...');
         jQuery.ajax({
             type: 'POST',
-            url: jQuery('#contactForm').attr("action"),
+            url: SERVER_URL + '/App/Contact',
             data: data,
             success: function (json) {
                 if (json.Success) {
@@ -67,40 +73,22 @@
         document.addEventListener('pause', onPause.bind(this), false);
         document.addEventListener('resume', onResume.bind(this), false);
 
-        try {
-            navigator.notification.alert('aaa', function () { });
-            jQuery('#contactForm').attr('action', SERVER_URL + '/App/Contact');
-            jQuery('#contactForm input[name="model"]').val(device.model);
-            jQuery('#contactForm input[name="platform"]').val(device.platform);
-            jQuery('#contactForm input[name="uuid"]').val(device.uuid);
-            jQuery('#contactForm input[name="version"]').val(device.version);
-            navigator.notification.alert('bbb', function () { });
-            jQuery('#formSuccessMessageWrap').hide(0);
-            navigator.notification.alert(jQuery('#formSuccessMessageWrap').css('display'), function () { });
-            jQuery('.formValidationError').fadeOut(0);
-            navigator.notification.alert(jQuery('.formValidationError').length, function () { });
-            navigator.notification.alert('bbb', function () { });
-            navigator.notification.alert('ccc', function () { });
-            jQuery('input[type="text"], input[type="password"], textarea').focus(function () {
-                if (jQuery(this).val() == jQuery(this).attr("data-dummy")) {
-                    jQuery(this).val("");
-                }
-            });
+        jQuery('input[type="text"], input[type="password"], textarea').focus(function () {
+            if (jQuery(this).val() == jQuery(this).attr("data-dummy")) {
+                jQuery(this).val("");
+            }
+        });
 
-            jQuery("input, textarea").blur(function () {
-                if (jQuery(this).val() == '') {
-                    jQuery(this).val(jQuery(this).attr("data-dummy"));
-                }
-            });
+        jQuery("input, textarea").blur(function () {
+            if (jQuery(this).val() == '') {
+                jQuery(this).val(jQuery(this).attr("data-dummy"));
+            }
+        });
 
-            jQuery('#contactSubmitButton').click(function () {
-                validate();
-                return false;
-            });
-        }
-        catch(err) {
-            navigator.notification.alert('ddd', function () { });
-        }
+        jQuery('#contactSubmitButton').click(function () {
+            validate();
+            return false;
+        });
         
     }
 

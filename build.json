@@ -1,0 +1,11 @@
+{
+     "android": {
+         "release": {
+             "keystore": "OneShot.keystore",
+             "storePassword": "8CM4xmof1fkxbpGbIgtJ",
+             "alias": "OneShot",
+             "password" : "8CM4xmof1fkxbpGbIgtJ",
+             "keystoreType": ""
+         }
+     }
+ }
