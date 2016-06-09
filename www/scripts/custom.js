@@ -54,19 +54,15 @@ function removeItem(id, history) {
 }
 
 function loadItem(item) {
-    if (item) {
-        item.Date = new Date();
-        try {
-            var history = loadHistory();
-            removeItem(item.Data.Id, history);
-            history.unshift(item);
-            saveHistory(history);
-            window.location = 'show.html?id=' + item.Id;
-        } catch (err) {
-            setError(err);
-        }
-    } else {
-        window.location = 'soon.html';
+    item.Date = new Date();
+    try {
+        var history = loadHistory();
+        removeItem(item.Data.Id, history);
+        history.unshift(item);
+        saveHistory(history);
+        window.location = 'show.html?id=' + item.Id;
+    } catch (err) {
+        setError(err);
     }
 }
 
@@ -753,7 +749,7 @@ function loadItem(item) {
 
         $('.show-share-bottom').click(function () {
             window.plugins.socialsharing.share(
-                'Hãy tưởng tượng một thế giới mà bạn có thể khám phá một thứ bạn thấy chỉ bằng một lần chụp ảnh.' + '#oneshot',
+                'Hãy tưởng tượng một thế giới mà bạn có thể khám phá một thứ bạn thấy chỉ bằng một lần chụp ảnh.' + ' #oneshot',
                 'OneShot',
                 [],
                 SERVER_URL
@@ -770,7 +766,56 @@ function loadItem(item) {
             var barcodeSuccess = function (result) {
                 if (result.cancelled == 0) {
 
-                    if (result.text.match(/\w+:.*$/g)) {
+                    var barcodeType = 'Nội dung';
+                    if (result.text.startsWith('http:') || result.text.startsWith('https:')) {
+                        barcodeType = 'Website';
+                    } else if (result.text.startsWith('mailto:')) {
+                        barcodeType = 'Email';
+                    } else if (result.text.startsWith('geo:')) {
+                        barcodeType = 'Bản đồ';
+                    } else if (result.text.startsWith('tel:') || result.text.startsWith('telprompt:')) {
+                        barcodeType = 'Điện thoại';
+                    } else if (result.text.startsWith('sms:') || result.text.startsWith('smsto:')) {
+                        barcodeType = 'Nhắn tin';
+                    } else if (result.text.startsWith('irc:')) {
+                        barcodeType = 'Chat';
+                    } else if (result.text.startsWith('feed:')) {
+                        barcodeType = 'Feed';
+                    } else if (result.text.startsWith('facetime:') || result.text.startsWith('facetime-audio:')) {
+                        barcodeType = 'FaceTime';
+                    } else if (result.text.startsWith('skype:')) {
+                        barcodeType = 'Skype';
+                    } else if (result.text.startsWith('gtalk:')) {
+                        barcodeType = 'Google Talk';
+                    } else if (result.text.startsWith('msnim:')) {
+                        barcodeType = 'Windows Live Messenger';
+                    } else if (result.text.startsWith('ymsgr:')) {
+                        barcodeType = 'Yahoo! Messenger';
+                    } else if (result.text.startsWith('aim:')) {
+                        barcodeType = 'AOL Instant Messenger';
+                    } else if (result.text.startsWith('music:')) {
+                        barcodeType = 'Âm nhạc';
+                    } else if (result.text.startsWith('videos:')) {
+                        barcodeType = 'Video';
+                    } else if (result.text.startsWith('ibooks:')) {
+                        barcodeType = 'iBooks';
+                    } else if (result.text.startsWith('twitter:')) {
+                        barcodeType = 'Twitter';
+                    } else if (result.text.startsWith('fb:')) {
+                        barcodeType = 'Facebook';
+                    } else if (result.text.startsWith('youtube:')) {
+                        barcodeType = 'YouTube';
+                    } else if (result.text.startsWith('dailymotion:')) {
+                        barcodeType = 'Dailymotion';
+                    } else if (result.text.startsWith('dailymotion:')) {
+                        barcodeType = 'Dailymotion';
+                    } else if (result.text.startsWith('MECARD:')) {
+                        barcodeType = 'meCard';
+                    } else if (result.text.startsWith('BEGIN:VCARD')) {
+                        barcodeType = 'vCard';
+                    }
+
+                    if (result.text.match(/\w+:.*$/g) || barcodeType == 'vCard') {
                         navigator.notification.confirm(
                             result.text,
                             function (buttonIndex) {
@@ -778,7 +823,7 @@ function loadItem(item) {
                                     window.open(result.text, '_system');
                                 }
                             },
-                            'Mã vạch',
+                            barcodeType,
                             ['Mở', 'Đóng']
                         );
                         return;
@@ -885,7 +930,7 @@ function loadItem(item) {
                         error: function (xhr, textStatus, error) {
                             if (xhr.readyState == 4) {
                                 if (xhr.status == 404) {
-                                    window.location = 'soon.html?id=' + xhr.statusText;
+                                    setWarning('Không tìm thấy kết quả cho ảnh chụp. Hãy thử canh chỉnh lại hoặc quét mã vạch.');
                                     return;
                                 }
                             } else if (xhr.readyState == 0) {
