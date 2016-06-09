@@ -930,7 +930,7 @@ function loadItem(item) {
                         error: function (xhr, textStatus, error) {
                             if (xhr.readyState == 4) {
                                 if (xhr.status == 404) {
-                                    setWarning('Không tìm thấy kết quả cho ảnh chụp. Hãy thử canh chỉnh lại hoặc quét mã vạch.');
+                                    setWarning('Không tìm thấy kết quả cho ảnh chụp. Hãy thử quét mã vạch nếu có.');
                                     return;
                                 }
                             } else if (xhr.readyState == 0) {
