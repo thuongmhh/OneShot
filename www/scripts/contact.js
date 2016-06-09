@@ -7,21 +7,12 @@
 
     document.addEventListener('deviceready', onDeviceReady.bind(this), false);
 
-    var formSubmitted = false;
     function submit() {
-        formSubmitted = true;
-
-        var data = jQuery('#contactForm').serialize();
-        data.model = device.model;
-        data.platform = device.platform;
-        data.uuid = device.uuid;
-        data.version = device.version;
-
         setInfo('Đang gửi tin nhắn của bạn. Vui lòng chờ trong giây lát...');
         jQuery.ajax({
             type: 'POST',
-            url: SERVER_URL + '/App/Contact',
-            data: data,
+            url: jQuery('#contactForm').attr("action"),
+            data: jQuery('#contactForm').serialize(),
             success: function (json) {
                 if (json.Success) {
                     jQuery('#contactForm').hide();
@@ -44,8 +35,7 @@
         jQuery('.formValidationError').hide();
         jQuery('.fieldHasError').removeClass("fieldHasError");
         jQuery('#contactForm .requiredField').each(function (index) {
-            if (jQuery(this).val() == '' || jQuery(this).val() == jQuery(this).attr('data-dummy')) {
-                jQuery(this).val(jQuery(this).attr('data-dummy'));
+            if (jQuery(this).val() == '') {
                 jQuery(this).focus();
                 jQuery(this).addClass('fieldHasError');
                 jQuery("#" + jQuery(this).attr("id") + "Error").fadeIn(300);
@@ -61,11 +51,10 @@
                     return false;
                 }
             }
-            if (!formSubmitted && index == jQuery("#contactForm .requiredField").length - 1) {
+            if (index == jQuery("#contactForm .requiredField").length - 1) {
                 submit();
             }
         });
-        return false;
     }
 
     function onDeviceReady() {
@@ -73,23 +62,16 @@
         document.addEventListener('pause', onPause.bind(this), false);
         document.addEventListener('resume', onResume.bind(this), false);
 
-        jQuery('input[type="text"], input[type="password"], textarea').focus(function () {
-            if (jQuery(this).val() == jQuery(this).attr("data-dummy")) {
-                jQuery(this).val("");
-            }
-        });
+        jQuery('#contactForm').attr('action', SERVER_URL + '/App/Contact');
+        jQuery('#contactForm input[name="model"]').val(device.model);
+        jQuery('#contactForm input[name="platform"]').val(device.platform);
+        jQuery('#contactForm input[name="uuid"]').val(device.uuid);
+        jQuery('#contactForm input[name="version"]').val(device.version);
 
-        jQuery("input, textarea").blur(function () {
-            if (jQuery(this).val() == '') {
-                jQuery(this).val(jQuery(this).attr("data-dummy"));
-            }
-        });
-
-        jQuery('#contactSubmitButton').click(function () {
+        jQuery('#contactForm').submit(function () {
             validate();
             return false;
         });
-        
     }
 
     function onPause() {
