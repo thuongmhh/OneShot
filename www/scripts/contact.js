@@ -61,7 +61,7 @@
         // Handle the Cordova pause and resume events
         document.addEventListener('pause', onPause.bind(this), false);
         document.addEventListener('resume', onResume.bind(this), false);
-
+        setInfo('onDeviceReady');
         jQuery('#contactForm').attr('action', SERVER_URL + '/App/Contact');
         jQuery('#contactForm input[name="model"]').val(device.model);
         jQuery('#contactForm input[name="platform"]').val(device.platform);
@@ -72,13 +72,13 @@
             validate();
             return false;
         });
-    }
+    };
 
     function onPause() {
         // TODO: This application has been suspended. Save application state here.
-    }
+    };
 
     function onResume() {
         // TODO: This application has been reactivated. Restore application state here.
-    }
+    };
 })();

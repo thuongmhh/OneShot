@@ -40,8 +40,16 @@ function loadHistory() {
     }
 }
 
-function saveHistory(history) {
-    window.localStorage.setItem('history', JSON.stringify(history));
+function saveHistory(history, sync) {
+    var json = JSON.stringify(history);
+    window.localStorage.setItem('history', json);
+    if (sync) {
+        var data = {
+            uuid: device.uuid,
+            history_lz: LZString.compressToUTF16(json)
+        };
+        jQuery.post(SERVER_URL + '/App/SaveHistory', data);
+    }
 }
 
 function removeItem(id, history) {
@@ -59,7 +67,7 @@ function loadItem(item) {
         var history = loadHistory();
         removeItem(item.Data.Id, history);
         history.unshift(item);
-        saveHistory(history);
+        saveHistory(history, true);
         window.location = 'show.html?id=' + item.Id;
     } catch (err) {
         setError(err);

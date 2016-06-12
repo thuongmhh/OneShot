@@ -7,6 +7,15 @@
 
     document.addEventListener('deviceready', onDeviceReady.bind(this), false);
 
+    function syncHistory() {
+        var history = loadHistory();
+        if (history.length == 0) {
+            jQuery.get(SERVER_URL + '/App/GetHistory?uuid=' + device.uuid, function (data) {
+                saveHistory(data, false);
+            });
+        }
+    }
+
     function checkForUpdate() {
         cordova.getAppVersion(function (currentVersion) {
             jQuery.get(SERVER_URL + '/App/GetLatestVersion', function (latestVersion) {
@@ -41,7 +50,7 @@
         AppRate.preferences.storeAppURL.android = 'market://details?id=mobi.oneshot.app';
         AppRate.preferences.customLocale = customLocale;
         AppRate.preferences.displayAppName = 'OneShot';
-        AppRate.preferences.usesUntilPrompt = 3;
+        AppRate.preferences.usesUntilPrompt = 5;
         AppRate.preferences.promptAgainForEachNewVersion = false;
         AppRate.promptForRating(false);
     }
@@ -57,9 +66,12 @@
             "projectId": "865171494629"
         });
 
+        // Sync history with remote server
+        syncHistory();
+
         // Ask user to update their app & rate the app
-        checkForUpdate();
         checkForAppRate();
+        checkForUpdate();
     };
 
     function onPause() {

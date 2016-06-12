@@ -25,7 +25,7 @@
         jQuery('.remove-history-item').click(function () {
             var id = jQuery(this).attr('item-id');
             removeItem(id, history);
-            saveHistory(history);
+            saveHistory(history, true);
             var container = jQuery('.history-item[item-id=' + id + ']');
             container.fadeOut('medium');
         });
