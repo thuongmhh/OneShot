@@ -740,7 +740,6 @@ function loadItem(item) {
             lastScrollTop = st;
         }
 
-
     }).on('deviceready', function () {
 
         // Catch all errors
